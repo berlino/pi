@@ -1,6 +1,6 @@
 import sqlite3
 
-conn=sqlite3.connect('vics.db')
+conn=sqlite3.connect('hello.db')
 
 c=conn.cursor()
 c.execute('''create table entries (block integer not null,state integer,parking integer,park_num integer,'text' text )''')

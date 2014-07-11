@@ -51,6 +51,9 @@ if __name__=='__main__':
     result=s.readlines(timeout=1)
 
     print result
+
+    cur=c.execute("select * from entries")
+    print cur.fetchall()
     
     if result:	
 	conn=sqlite3.connect('vics.db')
@@ -65,9 +68,6 @@ if __name__=='__main__':
     	park_num=int(result[13])
     	c.execute("update entries set park_num=? where parking=?",[park_num,parking])
     	conn.commit()
-
-	cur=c.execute("select * from entries")
-    	print cur.fetchall()
 
 	length=len(result[14:])
 	if length>255:
